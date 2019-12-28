@@ -1,0 +1,28 @@
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+      <h1 class="text-center font-weight-bold pt-5">新規投稿</h1>
+<%= form_for @tweet do |f| %>
+   <div class="field pt-3">
+       <%= f.label :body,"ツイート" %>
+       <%= f.text_field :body, :placeholder => "いまどうしてる？",  class: "col-md-12" %>
+   </div>
+   <div class="field pt-3">
+    <%= f.label :image %><br />
+    <%= f.file_field :cl_image, class: "col-md-12" %>
+   </div>
+   <div class="actions pt-3">
+     <%= f.submit "投稿する", class: "btn btn-primary" %>
+   </div>
+  <% end %>
+  <div class="pt-3">
+  </div>
+</div>
+<div class="col-md-1">
+
+</div>
+</div>
+</div>

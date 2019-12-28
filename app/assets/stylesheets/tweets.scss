@@ -1,0 +1,23 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tweets_index,.tweets_show{
+  .icon_image {
+    width: 70px;
+    height: 70px;
+    //サイズ指定
+    border-radius: 100px;
+    //画像を丸くする
+    object-fit: cover;
+    //タテヨコ比を変えないままトリミング
+  }
+
+  .users {
+      display: flex;
+      justify-content: center;
+  }
+  .container {
+    display: flex;
+  }
+
+}

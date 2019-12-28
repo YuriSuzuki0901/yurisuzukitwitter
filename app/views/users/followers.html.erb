@@ -1,0 +1,10 @@
+<section class="users_show_follower">
+  <br><br><br><br><br>
+  <div class="users">
+    <% @users.each do |user| %>
+       <div class="user">
+          <img src=<%= user.cl_image %> class = "icon_image">
+          <%= link_to(user.name, "/users/#{user.id}") %>
+          <% end %>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section class="tweets_index">
+<br><br><br><br><br><br>
+<%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag '検索する'  %>
+<% end %>
+<% @tweets.each do |tweet| %>
+<hr>
+<div class="container">
+  <div class="item">
+    <img src=<%= tweet.user.cl_image %> class = "icon_image">
+  </div>
+  <div class="item">
+    <%=link_to tweet.user.name, user_path(tweet.user.id) %><br>
+    <%=link_to tweet.body, tweet_path(tweet.id) %><br>
+    <%= image_tag  tweet.cl_image_url,width:400 %><br>
+    <% if user_signed_in? %>
+    <% if tweet.favorited_by?(current_user) %>
+      <p><span>お気に入り解除: </span><%=link_to tweet.favorites.count, tweet_favorites_path(tweet.id), method: :delete %></p>
+    <% else %>
+      <p><span>お気に入り登録: </span><%=link_to tweet.favorites.count, tweet_favorites_path(tweet.id), method: :post %></p>
+    <% end %>
+    <% else %>
+    <p><span>お気に入り数: </span><%= tweet.favorites.count %></p>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+<br><br><br><br><br>
+</section>

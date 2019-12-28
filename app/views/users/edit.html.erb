@@ -1,0 +1,36 @@
+<br><br><br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+
+      </div>
+      <div class="col-md-10">
+        <h1 class="text-center font-weight-bold pt-5">profile編集</h1>
+        <%= form_for current_user, url: user_path do |f| %>
+         <div class="field pt-3">
+           <%= f.label :name %><br />
+           <%= f.text_field :name, :placeholder => "ゆり", class: "col-md-12 form-control" %>
+         </div>
+
+         <div class="field pt-3">
+           <%= f.label :cl_image %><br/>
+           <%= f.file_field :cl_image, class: "col-md-12" %>
+         </div>
+
+         <div class="field pt-3">
+           <%= f.label :profile %><br />
+           <%= f.text_area :profile,:placeholder => "プロフィールを入力してください", autofocus: true, class: "col-md-12" %>
+         </div>
+
+         <div class="actions pt-3">
+          <%= f.submit "Update", class: "btn btn-primary" %>
+         </div>
+      <% end %>
+      <div class="pt-3">
+      </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YuriTwitter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+   <div class="wrapper">
+    <% if flash[:notice] %>
+   <div class="flash">
+    <%= flash[:notice] %>
+   </div>
+    <% end %>
+
+   <header class="header-nav">
+     <nav class="navbar"><%= link_to "投稿一覧", tweets_path %></nav>
+      <% if user_signed_in?%>
+      <nav class="navbar"><%= link_to "投稿", new_tweet_path %></nav>
+      <%end%>
+
+      <nav class="navbar"><%= link_to "user一覧ページへ", users_path %></nav>
+      <% if user_signed_in?%>
+      <nav class="navbar"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></nav>
+      <nav class="navbar"><%= link_to "マイページ", user_path(current_user.id) %></nav>
+
+      <%else%>
+      <nav class="navbar"><%= link_to 'ログイン', new_user_session_path %></nav>
+      <nav class="navbar"><%= link_to '新規登録', new_user_registration_path %></nav>
+      <%end%>
+   </header>
+
+
+    <%= yield %>
+
+
+   <footer>
+     <p>Copyright © Yuri Suzuki All Rights Reserved.</p>
+   </footer>
+   </div>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<section class="users_show">
+  <br><br><br><br><br>
+  <div class="block">
+      <div class="block-image">
+          <img src=<%= @user.cl_image %> class = "icon_image">
+      </div>
+      <div class="block-text">
+        <% if current_user != @user %>
+              <% if @user.followed_by?(current_user) %>
+                  <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
+              <% else %>
+                  <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
+              <% end %>
+        <%else%>
+        <%= button_to "プロフィール編集", edit_user_registration_path, {method: :get} %>
+        <% end %>
+          <% if @isRoom == true %>
+            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+          <% else %>
+            <% if current_user.id != @user.id %>
+              <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, :value=> @user.id %>
+                <% end %>
+                <%= f.submit "チャットを始める" %>
+              <% end %>
+            <% end %>
+          <% end %>
+      </div>
+
+      <h3>follow</h3>
+      <strong id="following" class="stat">
+        <%= link_to(@follows.count, follows_user_path) %>
+      </strong>
+      <h3>follower</h3>
+      <strong id="following" class="stat">
+        <%= link_to(@followers.count, followers_user_path) %>
+      </strong>
+      </div>
+
+
+
+  <div class="container">
+    <div class="item"><h3><%= @user.name %></h3><br>
+      <h3><%= @user.profile %></h3>
+    </div>
+
+      <div class="tab_wrap">
+        <input id="tab1" type="radio" name="tab_btn" checked>
+        <input id="tab2" type="radio" name="tab_btn">
+        <div class="tab_area">
+          <label class="tab1_label" for="tab1">投稿一覧</label>
+          <label class="tab2_label" for="tab2">いいねした投稿</label>
+        </div>
+        <div class="panel_area">
+          <div id="panel1" class="tab_panel">
+            <% @tweets.each do |t|%>
+             <%=link_to t.body, tweet_path(t.id) %>
+            <% end %>
+          </div>
+          <div id="panel2" class="tab_panel">
+            <% @favorite_tweets.each do |t| %>
+             <%=link_to t.body, tweet_path(t.id) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <br><br><br><br><br>      
+      </section>

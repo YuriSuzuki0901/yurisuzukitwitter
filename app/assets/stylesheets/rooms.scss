@@ -1,0 +1,137 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.rooms_show{
+  padding-top: 100px;
+
+.line {
+  // padding: 20px 10px;
+  max-width: 450px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+  height: 700px;
+  overflow: auto;
+  //
+  // .sbs-line:before {
+  //   content: "";
+  //
+  //     color: #fff;
+  //     font-weight: bold;
+  //     line-height: 1;
+  //     text-align: center;
+  //     width: 450px;
+  //     padding: 2em 0;
+  //     background: #263047;
+  //     top: 0; left: 0;
+  //     display: block;
+  //     margin-top: -60px;
+  //     margin-left: -10px;
+  // }
+  .sbs-line {
+    color: #fff;
+    font-weight: bold;
+    line-height: 1;
+    font-size:1.5rem;
+    text-align: center;
+    width: 450px;
+    padding: 1rem 0;
+    background: #263047;
+    // top: 0; left: 0;
+    display: block;
+    // margin-top: -60px;
+    // margin-left: -10px;
+  }
+  .sbs-line+.sbs-line:before {
+      content: none;
+  }
+
+  .balloon6 {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+
+  .balloon6 .faceicon {
+    float: left;
+    margin-right: -50px;
+    width: 40px;
+  }
+
+  .balloon6 .faceicon img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  .balloon6 .chatting {
+    width: 100%;
+    text-align: left;
+  }
+  .says {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0 50px;
+    padding: 10px;
+    max-width: 250px;
+    border-radius: 12px;
+    background: #edf1ee;
+  }
+
+  .says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: -19px;
+    border: 8px solid transparent;
+    border-right: 18px solid #edf1ee;
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+  }
+  .says p {
+    margin: 0;
+    padding: 0;
+    color: black;
+
+  }
+
+  /*以下、③右側の緑コメント*/
+  .mycomment {
+    margin: 10px 0;
+    z-index: 20;
+  }
+  .mycomment p {
+    display: inline-block;
+    position: relative;
+    margin: 0 10px 0 0;
+    padding: 8px;
+    max-width: 250px;
+    border-radius: 12px;
+    background: #30e852;
+    font-size: 15px;
+    color: black;
+  }
+
+  .mycomment p:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: -19px;
+    border: 8px solid transparent;
+    border-left: 18px solid #30e852;
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+  }
+
+}
+.post {
+  background-color: white;
+  width: 400px;
+  display: flex;
+  bottom: 145px;
+  right: 725px;
+  position: absolute
+
+}
+}
